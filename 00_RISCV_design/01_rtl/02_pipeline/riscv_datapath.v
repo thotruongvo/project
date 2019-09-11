@@ -129,18 +129,7 @@ module riscv_datapath (
 			.reg_out			(pc_4_s5)
 	);
 
-	wire [14:0] pc_4_s6;
-	riscv_reg_pipe #(
-			.DLY_FF 			(1),
-			.DATA_WIDTH 	(15)
-	) u_pc_4_s6 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(pc_4_s5),
-			.reg_out			(pc_4_s6)
-	);
-	
+
 	//pipeline pc signal
 	wire [14:0] pc_s1;
 	riscv_reg_pipe #(
@@ -239,18 +228,6 @@ module riscv_datapath (
 			.reg_out			(inst_s5)
 	);
 
-	wire [31:0] inst_s6;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_inst_s6 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(inst_s5),
-			.reg_out			(inst_s6)
-	);
-
 
 	//pipeline rs1 and rs2
 	wire [31:0] rs1_s2;
@@ -263,18 +240,6 @@ module riscv_datapath (
 			.enable				(1'b1),
 			.reg_in				(rs1_w),
 			.reg_out			(rs1_s2)
-	);
-
-	wire [31:0] rs1_s3;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_rs1_s3 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(rs1_s2),
-			.reg_out			(rs1_s3)
 	);
 
 	wire [31:0] rs2_s2;
@@ -299,6 +264,18 @@ module riscv_datapath (
 			.enable				(1'b1),
 			.reg_in				(rs2_s2),
 			.reg_out			(rs2_s3)
+	);
+
+	wire [31:0] rs2_s4;
+	riscv_reg_pipe #(
+			.DLY_FF				(1),
+			.DATA_WIDTH		(32)
+	) u_rs2_s3 (
+			.clk					(clk),
+			.reset				(reset),
+			.enable				(1'b1),
+			.reg_in				(rs2_s3),
+			.reg_out			(rs2_s4)
 	);
 
 //pipe line imm signal
@@ -326,44 +303,56 @@ module riscv_datapath (
 			.reg_out			(imm_s3)
 	);
 
-	wire [31:0] imm_s4;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_imm_s4 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(imm_s3),
-			.reg_out			(imm_s4)
-	);
+	// wire [31:0] imm_s4;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF				(1),
+	// 		.DATA_WIDTH		(32)
+	// ) u_imm_s4 (
+	// 		.clk					(clk),
+	// 		.reset				(reset),
+	// 		.enable				(1'b1),
+	// 		.reg_in				(imm_s3),
+	// 		.reg_out			(imm_s4)
+	// );
 
 	//pipeline alumux signal	
-	wire [31:0] alumux1_s4;
+	wire [31:0] alumux1_s3;
 	riscv_reg_pipe #(
 			.DLY_FF				(1),
 			.DATA_WIDTH		(32)
-	) u_alumux1_s4 (
+	) u_alumux1_s3 (
 			.clk					(clk),
 			.reset				(reset),
 			.enable				(1'b1),
 			.reg_in				(alumux1_w),
-			.reg_out			(alumux1_s4)
+			.reg_out			(alumux1_s3)
 	);
 
-	wire [31:0] alumux2_s4;
+	wire [31:0] alumux2_s3;
 	riscv_reg_pipe #(
 			.DLY_FF				(1),
 			.DATA_WIDTH		(32)
-	) u_alumux2_s4 (
+	) u_alumux2_s3 (
 			.clk					(clk),
 			.reset				(reset),
 			.enable				(1'b1),
 			.reg_in				(alumux2_w),
-			.reg_out			(alumux2_s4)
+			.reg_out			(alumux2_s3)
 	);
 
 	//pipeline alu_out signal
+	wire [31:0] alu_s4;
+	riscv_reg_pipe #(
+			.DLY_FF				(1),
+			.DATA_WIDTH		(32)
+	) u_alu_s4 (
+			.clk					(clk),
+			.reset				(reset),
+			.enable				(1'b1),
+			.reg_in				(alu_w),
+			.reg_out			(alu_s4)
+	);
+
 	wire [31:0] alu_s5;
 	riscv_reg_pipe #(
 			.DLY_FF				(1),
@@ -372,143 +361,131 @@ module riscv_datapath (
 			.clk					(clk),
 			.reset				(reset),
 			.enable				(1'b1),
-			.reg_in				(alu_w),
+			.reg_in				(alu_s4),
 			.reg_out			(alu_s5)
 	);
 
-	wire [31:0] alu_s6;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_alu_s6 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(alu_s5),
-			.reg_out			(alu_s6)
-	);
+	// wire [31:0] alu_s3;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF				(1),
+	// 		.DATA_WIDTH		(32)
+	// ) u_alu_s3 (
+	// 		.clk					(clk),
+	// 		.reset				(reset),
+	// 		.enable				(1'b1),
+	// 		.reg_in				(alu_w),
+	// 		.reg_out			(alu_s3)
+	// );
 
-	wire [31:0] alu_s3;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_alu_s3 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(alu_w),
-			.reg_out			(alu_s3)
-	);
+	// wire [31:0] alu_s2;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF				(1),
+	// 		.DATA_WIDTH		(32)
+	// ) u_alu_s2 (
+	// 		.clk					(clk),
+	// 		.reset				(reset),
+	// 		.enable				(1'b1),
+	// 		.reg_in				(alu_s3),
+	// 		.reg_out			(alu_s2)
+	// );
 
-	wire [31:0] alu_s2;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_alu_s2 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(alu_s3),
-			.reg_out			(alu_s2)
-	);
+	// wire [31:0] alu_s1;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF				(1),
+	// 		.DATA_WIDTH		(32)
+	// ) u_alu_s1 (
+	// 		.clk					(clk),
+	// 		.reset				(reset),
+	// 		.enable				(1'b1),
+	// 		.reg_in				(alu_s2),
+	// 		.reg_out			(alu_s1)
+	// );
 
-	wire [31:0] alu_s1;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_alu_s1 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(alu_s2),
-			.reg_out			(alu_s1)
-	);
-
-	wire [31:0] alu_s0;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_alu_s0 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(alu_s1),
-			.reg_out			(alu_s0)
-	);
+	// wire [31:0] alu_s0;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF				(1),
+	// 		.DATA_WIDTH		(32)
+	// ) u_alu_s0 (
+	// 		.clk					(clk),
+	// 		.reset				(reset),
+	// 		.enable				(1'b1),
+	// 		.reg_in				(alu_s1),
+	// 		.reg_out			(alu_s0)
+	// );
 
 	//pipeline MEM	
-	wire [31:0] mem_s6;
+	wire [31:0] mem_s5;
 	riscv_reg_pipe #(
 			.DLY_FF				(1),
 			.DATA_WIDTH		(32)
-	) u_mem_s6 (
+	) u_mem_s5 (
 			.clk					(clk),
 			.reset				(reset),
 			.enable				(1'b1),
 			.reg_in				(mem_w),
-			.reg_out			(mem_s6)
+			.reg_out			(mem_s5)
 	);
 
 	//pipeline wb output
-	wire [31:0] wb_s5;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_wb_s5 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(wb_w),
-			.reg_out			(wb_s5)
-	);
+	// wire [31:0] wb_s5;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF				(1),
+	// 		.DATA_WIDTH		(32)
+	// ) u_wb_s5 (
+	// 		.clk					(clk),
+	// 		.reset				(reset),
+	// 		.enable				(1'b1),
+	// 		.reg_in				(wb_w),
+	// 		.reg_out			(wb_s5)
+	// );
 
-	wire [31:0] wb_s4;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_wb_s4 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(wb_s5),
-			.reg_out			(wb_s4)
-	);
+	// wire [31:0] wb_s4;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF				(1),
+	// 		.DATA_WIDTH		(32)
+	// ) u_wb_s4 (
+	// 		.clk					(clk),
+	// 		.reset				(reset),
+	// 		.enable				(1'b1),
+	// 		.reg_in				(wb_s5),
+	// 		.reg_out			(wb_s4)
+	// );
 
-	wire [31:0] wb_s3;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_wb_s3 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(wb_s4),
-			.reg_out			(wb_s3)
-	);
+	// wire [31:0] wb_s3;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF				(1),
+	// 		.DATA_WIDTH		(32)
+	// ) u_wb_s3 (
+	// 		.clk					(clk),
+	// 		.reset				(reset),
+	// 		.enable				(1'b1),
+	// 		.reg_in				(wb_s4),
+	// 		.reg_out			(wb_s3)
+	// );
 
-	wire [31:0] wb_s2;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_wb_s2 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(wb_s3),
-			.reg_out			(wb_s2)
-	);
+	// wire [31:0] wb_s2;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF				(1),
+	// 		.DATA_WIDTH		(32)
+	// ) u_wb_s2 (
+	// 		.clk					(clk),
+	// 		.reset				(reset),
+	// 		.enable				(1'b1),
+	// 		.reg_in				(wb_s3),
+	// 		.reg_out			(wb_s2)
+	// );
 
-	wire [31:0] wb_s1;
-	riscv_reg_pipe #(
-			.DLY_FF				(1),
-			.DATA_WIDTH		(32)
-	) u_wb_s1 (
-			.clk					(clk),
-			.reset				(reset),
-			.enable				(1'b1),
-			.reg_in				(wb_s2),
-			.reg_out			(wb_s1)
-	);
+	// wire [31:0] wb_s1;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF				(1),
+	// 		.DATA_WIDTH		(32)
+	// ) u_wb_s1 (
+	// 		.clk					(clk),
+	// 		.reset				(reset),
+	// 		.enable				(1'b1),
+	// 		.reg_in				(wb_s2),
+	// 		.reg_out			(wb_s1)
+	// );
 
 //========================================================
 
@@ -534,7 +511,7 @@ module riscv_datapath (
 			.reset				(reset),
 			.reg_wen			(regwen_in),
 			.data_d				(wb_w),
-			.addr_d				(inst_s6[11:7]),
+			.addr_d				(inst_s5[11:7]),
 			.addr_a				(inst_s1[19:15]),
 			.addr_b				(inst_s1[24:20]),
 			.data_a				(rs1_w),
@@ -550,8 +527,8 @@ module riscv_datapath (
 
 	//branch comp instance
 	riscv_branch_comp u_branch_com (
-			.A						(rs1_s2),
-			.B						(rs2_s2),
+			.A						(rs1_w),
+			.B						(rs2_w),
 			.BrUn					(brun_in),
 			.BrEq					(breq_out),
 			.BrLT					(brlt_out)
@@ -559,26 +536,26 @@ module riscv_datapath (
 
 	// alumux_1_instance
 	riscv_alumux_1 u_alumux_1 (
-			.pc						(pc_s3),
-			.rs1					(rs1_s3),
+			.pc						(pc_s2),
+			.rs1					(rs1_s2),
 			.asel					(asel_in),
 			.alumux1_out	(alumux1_w)
 	);
 
 	//alumux_2_instance
 	riscv_alumux_2 u_alumux_2 (
-			.imm					(imm_s3),
-			.rs2					(rs2_s3),
+			.imm					(imm_s2),
+			.rs2					(rs2_s2),
 			.bsel					(bsel_in),
 			.alumux2_out	(alumux2_w)
 	);
 
 	// alu instance
 	riscv_alu u_alu (
-			.in1					(alumux1_s4),
-			.in2					(alumux2_s4),
+			.in1					(alumux1_s3),
+			.in2					(alumux2_s3),
 			.alu_sel			(alusel_in),
-			.imm					(imm_s4),
+			.imm					(imm_s3),
 			.out					(alu_w)
 	);
 
@@ -587,20 +564,20 @@ module riscv_datapath (
 			.clk					(clk),
 			.reset				(reset),
 			.mem_wen			(memrw_in),
-			.addr					(alu_w[14:0]),
-			.data_w				(rs2_w),
+			.addr					(alu_s4[14:0]),
+			.data_w				(rs2_s4),
 			.data_r				(mem_w),
-			.inst					(inst_w)
+			.inst					(inst_s4)
 	);
 
 	//wbmux instance
 	riscv_wbmux u_wbmux (
-			.alu					(alu_s6),
-			.pc_4					(pc_4_s6),
-			.mem					(mem_s6),
+			.alu					(alu_s5),
+			.pc_4					(pc_4_s5),
+			.mem					(mem_s5),
 			.wbsel				(wbsel_in),
 			.wb						(wb_w),
-			.inst					(inst_s6)
+			.inst					(inst_s5)
 	);
 
   //==========================================

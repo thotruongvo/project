@@ -96,17 +96,17 @@ module riscv_top (clk, reset);
 			.reg_out		(ASel_s2)
 	);
 
-	wire ASel_s3;
-	riscv_reg_pipe #(
-			.DLY_FF 		(1),
-			.DATA_WIDTH	(1)
-	) u_ASel_s3 (
-			.clk				(clk),
-			.reset			(reset),
-			.enable			(1'b1),
-			.reg_in			(ASel_s2),
-			.reg_out		(ASel_s3)
-	);
+	// wire ASel_s3;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF 		(1),
+	// 		.DATA_WIDTH	(1)
+	// ) u_ASel_s3 (
+	// 		.clk				(clk),
+	// 		.reset			(reset),
+	// 		.enable			(1'b1),
+	// 		.reg_in			(ASel_s2),
+	// 		.reg_out		(ASel_s3)
+	// );
 
 //===================
 // BSel signal
@@ -134,17 +134,17 @@ module riscv_top (clk, reset);
 			.reg_out		(BSel_s2)
 	);
 
-	wire BSel_s3;
-	riscv_reg_pipe #(
-			.DLY_FF 		(1),
-			.DATA_WIDTH	(1)
-	) u_BSel_s3 (
-			.clk				(clk),
-			.reset			(reset),
-			.enable			(1'b1),
-			.reg_in			(BSel_s2),
-			.reg_out		(BSel_s3)
-	);
+	// wire BSel_s3;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF 		(1),
+	// 		.DATA_WIDTH	(1)
+	// ) u_BSel_s3 (
+	// 		.clk				(clk),
+	// 		.reset			(reset),
+	// 		.enable			(1'b1),
+	// 		.reg_in			(BSel_s2),
+	// 		.reg_out		(BSel_s3)
+	// );
 
 //================================
 // ALUSel signal
@@ -185,17 +185,17 @@ module riscv_top (clk, reset);
 			.reg_out		(ALUSel_s3)
 	);
 
-	wire [3:0] ALUSel_s4;
-	riscv_reg_pipe #(
-			.DLY_FF 		(1),
-			.DATA_WIDTH	(4)
-	) u_ALUSel_s4 (
-			.clk				(clk),
-			.reset			(reset),
-			.enable			(1'b1),
-			.reg_in			(ALUSel_s3),
-			.reg_out		(ALUSel_s4)
-	);
+	// wire [3:0] ALUSel_s4;
+	// riscv_reg_pipe #(
+	// 		.DLY_FF 		(1),
+	// 		.DATA_WIDTH	(4)
+	// ) u_ALUSel_s4 (
+	// 		.clk				(clk),
+	// 		.reset			(reset),
+	// 		.enable			(1'b1),
+	// 		.reg_in			(ALUSel_s3),
+	// 		.reg_out		(ALUSel_s4)
+	// );
 
 //============================
 // MemRW
@@ -247,17 +247,17 @@ module riscv_top (clk, reset);
 			.reg_out		(MemRW_s4)
 	);
 
-	wire MemRW_s5;		
-	riscv_reg_pipe #(
-			.DLY_FF 		(1),
-			.DATA_WIDTH	(1)
-	) u_memrw_s5 (
-			.clk				(clk),
-			.reset			(reset),
-			.enable			(1'b1),
-			.reg_in			(MemRW_s4),
-			.reg_out		(MemRW_s5)
-	);
+	// wire MemRW_s5;		
+	// riscv_reg_pipe #(
+	// 		.DLY_FF 		(1),
+	// 		.DATA_WIDTH	(1)
+	// ) u_memrw_s5 (
+	// 		.clk				(clk),
+	// 		.reset			(reset),
+	// 		.enable			(1'b1),
+	// 		.reg_in			(MemRW_s4),
+	// 		.reg_out		(MemRW_s5)
+	// );
 
 //============================
 // WBSel
@@ -321,17 +321,17 @@ module riscv_top (clk, reset);
 			.reg_out		(WBSel_s5)
 	);
 
-	wire [1:0] WBSel_s6;		
-	riscv_reg_pipe #(
-			.DLY_FF 		(1),
-			.DATA_WIDTH	(2)
-	) u_wbsel_s6 (
-			.clk				(clk),
-			.reset			(reset),
-			.enable			(1'b1),
-			.reg_in			(WBSel_s5),
-			.reg_out		(WBSel_s6)
-	);
+	// wire [1:0] WBSel_s6;		
+	// riscv_reg_pipe #(
+	// 		.DLY_FF 		(1),
+	// 		.DATA_WIDTH	(2)
+	// ) u_wbsel_s6 (
+	// 		.clk				(clk),
+	// 		.reset			(reset),
+	// 		.enable			(1'b1),
+	// 		.reg_in			(WBSel_s5),
+	// 		.reg_out		(WBSel_s6)
+	// );
 
 //============================
 // REGWEN
@@ -395,17 +395,17 @@ module riscv_top (clk, reset);
 			.reg_out		(regwen_s5)
 	);
 
-	wire regwen_s6;		
-	riscv_reg_pipe #(
-			.DLY_FF 		(1),
-			.DATA_WIDTH	(1)
-	) u_regwen_s6 (
-			.clk				(clk),
-			.reset			(reset),
-			.enable			(1'b1),
-			.reg_in			(regwen_s5),
-			.reg_out		(regwen_s6)
-	);
+	// wire regwen_s6;		
+	// riscv_reg_pipe #(
+	// 		.DLY_FF 		(1),
+	// 		.DATA_WIDTH	(1)
+	// ) u_regwen_s6 (
+	// 		.clk				(clk),
+	// 		.reset			(reset),
+	// 		.enable			(1'b1),
+	// 		.reg_in			(regwen_s5),
+	// 		.reg_out		(regwen_s6)
+	// );
 
 ///////////////////////
 
@@ -415,13 +415,13 @@ module riscv_top (clk, reset);
   		.reset				(reset),
   		.pcsel_in			(pcsel_w),
   		.immsel_in		(immsel_s1),
-  		.regwen_in		(regwen_s6),
+  		.regwen_in		(regwen_s5),
   		.brun_in			(BrUn_w),
-  		.bsel_in			(BSel_s3),
-  		.asel_in			(ASel_s3),
-  		.alusel_in		(ALUSel_s4),
-  		.memrw_in			(MemRW_s5),
-  		.wbsel_in			(WBSel_s6),
+  		.bsel_in			(BSel_s2),
+  		.asel_in			(ASel_s2),
+  		.alusel_in		(ALUSel_s3),
+  		.memrw_in			(MemRW_s4),
+  		.wbsel_in			(WBSel_s5),
   		.inst_out			(inst_w),
   		.breq_out			(BrEq_w),
   		.brlt_out			(BrLT_w)

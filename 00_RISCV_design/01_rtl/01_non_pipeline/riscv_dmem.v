@@ -45,18 +45,18 @@ module riscv_dmem (
   //==========================================
   // Architecture module
   //==========================================
-	always @ (posedge clk or posedge reset) begin
+	always @ (*) begin
 		if (reset == 1'b1) begin
-			data_reg <= #DLY_FF 32'b0;
+			data_reg =  32'b0;
 		end
 		else if (mem_wen == 1'b1) begin
-			mem_ddata[addr] <= #DLY_FF data_w_reg;
+			mem_ddata[addr] =  data_w_reg;
 		end
 		else if (mem_wen == 1'b0) begin
-			data_reg <= #DLY_FF mem_ddata[addr];
+			data_reg =  mem_ddata[addr];
 		end	
 		else begin
-			data_reg <= 32'bx;
+			data_reg = 32'bx;
 		end
 	end
 
@@ -66,14 +66,14 @@ module riscv_dmem (
 	always @ (*) begin
 		if (inst[6:0] == 7'b010_0011) begin
 			case (inst[14:12])
-				3'b000: data_w_reg = {{24{1'b0}},data_w[7:0]};
-				3'b001: data_w_reg = {{16{1'b0}},data_w[15:0]};
-				3'b010: data_w_reg = data_w;
-				default: data_w_reg = data_w;
+				3'b000: #1 data_w_reg = {{24{1'b0}},data_w[7:0]};
+				3'b001: #1 data_w_reg = {{16{1'b0}},data_w[15:0]};
+				3'b010: #1 data_w_reg = data_w;
+				default: #1 data_w_reg = data_w;
 			endcase
 		end
 		else begin
-			data_w_reg = data_w;
+			#1 data_w_reg = data_w;
 		end
 	end
 

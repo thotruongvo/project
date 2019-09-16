@@ -40,13 +40,13 @@ module riscv_imm_gen (
   //==========================================
 	always @ (*) begin
 		case (select) 
-			I_TYPE:	imm_reg = {{20{data_in[24]}},data_in[24:13]};
-			S_TYPE:	imm_reg = {{20{data_in[24]}},data_in[24:18],data_in[4:0]};
-			B_TYPE: imm_reg = {{20{data_in[24]}},data_in[24],data_in[0],data_in[23:18],data_in[4:1],1'b0};
-			U_TYPE: imm_reg = {{12{data_in[24]}},data_in[24:5]};
-			JAL		: imm_reg = {{11{data_in[24]}},data_in[24],data_in[12:5],data_in[13],data_in[23:14],1'b0};
-			JALR	: imm_reg = {{20{data_in[24]}},data_in[24:13]};
-			default: imm_reg = 32'bz;
+			I_TYPE:	 imm_reg = {{20{data_in[24]}},data_in[24:13]};
+			S_TYPE:	 imm_reg = {{20{data_in[24]}},data_in[24:18],data_in[4:0]};
+			B_TYPE:  imm_reg = {{20{data_in[24]}},data_in[24],data_in[0],data_in[23:18],data_in[4:1],1'b0};
+			U_TYPE:  imm_reg = {{12{data_in[24]}},data_in[24:5]};
+			JAL		:  imm_reg = {{11{data_in[24]}},data_in[24],data_in[12:5],data_in[13],data_in[23:14],1'b0};
+			JALR	:  imm_reg = {{20{data_in[24]}},data_in[24:13]};
+			default:  imm_reg = 32'bz;
 		endcase
 	end
 

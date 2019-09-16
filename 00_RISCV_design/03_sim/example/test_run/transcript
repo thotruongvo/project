@@ -1,0 +1,18 @@
+# Reading D:/00_IC_tool/03_Questasim/tcl/vsim/pref.tcl 
+# //  Questa Sim-64
+# //  Version 10.2c Unknown Platform Jul 19 2013
+# //
+# //  Copyright 1991-2013 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# OpenFile E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/testbench_wav.wlf 
+add wave -position insertpoint  \
+testbench_wav:/testbench/clk \
+testbench_wav:/testbench/reset \
+testbench_wav:/testbench/inst_name
+add wave -position insertpoint  \
+testbench_wav:/testbench/u_riscv/u_control/inst

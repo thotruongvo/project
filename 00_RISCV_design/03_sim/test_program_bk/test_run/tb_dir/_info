@@ -1,0 +1,29 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dE:/thovo_project/project/00_RISCV_design/03_sim/test_program/test_run
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+vtestbench
+V`JN@9S9cnhjKRR_L]QIcM3
+r1
+!s85 0
+31
+II0@NC9F19ZbfSG[TbY?MW0
+Z1 dE:/thovo_project/project/00_RISCV_design/03_sim/test_program/test_run
+w1568495490
+8../../../02_tb/testbench.v
+F../../../02_tb/testbench.v
+L0 39
+OL;L;10.2c;57
+o+initreg+{r}+{0} +delay_mode_zero -timescale 1ns/1ns -vlog01compat -work tb_lib -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!i10b 1
+!s100 8a18=O_Ja_z8B9HDc:4Qm1
+!s108 1568558608.460000
+!s107 ../../../02_tb/testbench.v|
+!s90 +initreg+{r}+{0}|+delay_mode_zero|-timescale|1ns/1ns|-vlog01compat|-work|tb_lib|../../../02_tb/testbench.v|
+!i111 0

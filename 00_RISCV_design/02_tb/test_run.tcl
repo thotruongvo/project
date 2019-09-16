@@ -14,10 +14,11 @@
     #----------------------------------------------------------------------------------------------
     #   Clear the test_run folders – Only Option
     #----------------------------------------------------------------------------------------------
-#    if {[file isdirectory test_run]} {
-#        file delete -force test_run
-#    }
-#    file mkdir test_run
+    if {[file isdirectory test_run]} {
+        #file delete -force test_run
+    } else {
+    file mkdir test_run
+    }
     cd "./test_run"
 
     #----------------------------------------------------------------------------------------------
@@ -49,18 +50,19 @@
     #----------------------------------------------------------------------------------------------
     #   Compilation of verilog files
     #----------------------------------------------------------------------------------------------
-    set rtl_path ".."
-    set tb_path ".."
+    set rtl_path "../../../01_rtl/01_non_pipeline"
+    set tb_path "../../../02_tb"
     
-    vlog -timescale 1ns/1ns -vlog01compat -work rtl_lib "$rtl_path/riscv_branch_comp.v"
-    vlog -timescale 1ns/1ns -vlog01compat -work tb_lib  "$tb_path/test.v"
+    vlog +initreg+{r}+{0} +delay_mode_zero -timescale 1ns/1ns -vlog01compat -work rtl_lib "$rtl_path/*.v"
+    vlog +initreg+{r}+{0} +delay_mode_zero -timescale 1ns/1ns -vlog01compat -work rtl_lib "../riscv_imem.v"
+    vlog +initreg+{r}+{0} +delay_mode_zero -timescale 1ns/1ns -vlog01compat -work tb_lib  "$tb_path/testbench.v"
     
     #----------------------------------------------------------------------------------------------
     #   Running the simulation
     #----------------------------------------------------------------------------------------------
-    vsim -novopt -t ns -wlf "testbench_wav.wlf" -L rtl_lib -L tb_lib tb_lib.test
+    vsim -novopt -t ns -wlf "testbench_wav.wlf" -L rtl_lib -L tb_lib tb_lib.testbench
     log -r /*
-    run 500ns
+    run 2ms
 
     #----------------------------------------------------------------------------------------------
     #   Quit the simulation

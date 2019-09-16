@@ -1,0 +1,257 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dE:/thovo_project/project/00_RISCV_design/03_sim/test_program/test_run
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+vriscv_alu
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+31
+I]nnSR0ON^W:0h8Uh;NMB`0
+Z2 dE:/thovo_project/project/00_RISCV_design/03_sim/test_program/test_run
+Z3 w1567259302
+8../../../01_rtl/01_non_pipeline/riscv_alu.v
+F../../../01_rtl/01_non_pipeline/riscv_alu.v
+L0 9
+Z4 OL;L;10.2c;57
+Z5 !s108 1568559127.595000
+Z6 !s107 ../../../01_rtl/01_non_pipeline/riscv_wbmux.v|../../../01_rtl/01_non_pipeline/riscv_top.v|../../../01_rtl/01_non_pipeline/riscv_register.v|../../../01_rtl/01_non_pipeline/riscv_pc.v|../../../01_rtl/01_non_pipeline/riscv_imm_gen.v|../../../01_rtl/01_non_pipeline/riscv_dmem.v|../../../01_rtl/01_non_pipeline/riscv_datapath.v|../../../01_rtl/01_non_pipeline/riscv_controller.v|../../../01_rtl/01_non_pipeline/riscv_branch_comp.v|../../../01_rtl/01_non_pipeline/riscv_alumux_2.v|../../../01_rtl/01_non_pipeline/riscv_alumux_1.v|../../../01_rtl/01_non_pipeline/riscv_alu.v|
+Z7 !s90 +initreg+{r}+{0}|+delay_mode_zero|-timescale|1ns/1ns|-vlog01compat|-work|rtl_lib|../../../01_rtl/01_non_pipeline/riscv_alu.v|../../../01_rtl/01_non_pipeline/riscv_alumux_1.v|../../../01_rtl/01_non_pipeline/riscv_alumux_2.v|../../../01_rtl/01_non_pipeline/riscv_branch_comp.v|../../../01_rtl/01_non_pipeline/riscv_controller.v|../../../01_rtl/01_non_pipeline/riscv_datapath.v|../../../01_rtl/01_non_pipeline/riscv_dmem.v|../../../01_rtl/01_non_pipeline/riscv_imm_gen.v|../../../01_rtl/01_non_pipeline/riscv_pc.v|../../../01_rtl/01_non_pipeline/riscv_register.v|../../../01_rtl/01_non_pipeline/riscv_top.v|../../../01_rtl/01_non_pipeline/riscv_wbmux.v|
+Z8 o+initreg+{r}+{0} +delay_mode_zero -timescale 1ns/1ns -vlog01compat -work rtl_lib -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s85 0
+!s100 UnG^`kD5ORAL3b_z@bi4J2
+!i10b 1
+!i111 0
+vriscv_alumux_1
+R1
+r1
+31
+IklLXNz`31mPU:7FY]LJ=21
+R2
+R3
+8../../../01_rtl/01_non_pipeline/riscv_alumux_1.v
+F../../../01_rtl/01_non_pipeline/riscv_alumux_1.v
+L0 9
+R4
+R5
+R6
+R7
+R8
+!s85 0
+!s100 <d7T@Tbh_i<@Hnfz@R67n3
+!i10b 1
+!i111 0
+vriscv_alumux_2
+R1
+r1
+31
+I48dIfT]knIECaTU89@[nA1
+R2
+R3
+8../../../01_rtl/01_non_pipeline/riscv_alumux_2.v
+F../../../01_rtl/01_non_pipeline/riscv_alumux_2.v
+L0 9
+R4
+R5
+R6
+R7
+R8
+!s85 0
+!s100 P]_:Okk4k[PiWQzT<aVA52
+!i10b 1
+!i111 0
+vriscv_branch_comp
+R1
+r1
+31
+IUHYc_NIdIl>ocGiHCbohG1
+R2
+w1568144742
+8../../../01_rtl/01_non_pipeline/riscv_branch_comp.v
+F../../../01_rtl/01_non_pipeline/riscv_branch_comp.v
+L0 7
+R4
+R5
+R6
+R7
+R8
+!s85 0
+!s100 Xi:ifJkRDUF:kkdIL[4^23
+!i10b 1
+!i111 0
+vriscv_controller
+R1
+r1
+!s85 0
+31
+Icn?I4UmQJ_eING]lMAe:z3
+R2
+w1568578798
+8../../../01_rtl/01_non_pipeline/riscv_controller.v
+F../../../01_rtl/01_non_pipeline/riscv_controller.v
+L0 45
+R4
+R5
+R6
+R7
+R8
+!s100 92;j@W^m7chcn:;fkehhV2
+!i10b 1
+!i111 0
+vriscv_datapath
+R1
+r1
+31
+IBIIE<El4:;N8jYUPaY9o70
+R2
+w1568405068
+8../../../01_rtl/01_non_pipeline/riscv_datapath.v
+F../../../01_rtl/01_non_pipeline/riscv_datapath.v
+L0 9
+R4
+R5
+R6
+R7
+R8
+!s85 0
+!s100 54Fd8mXP<H@;G9C=IzF5=3
+!i10b 1
+!i111 0
+vriscv_dmem
+R1
+r1
+31
+Ijic6cIg`kK5X:Nh^lRkD@2
+R2
+w1568559931
+8../../../01_rtl/01_non_pipeline/riscv_dmem.v
+F../../../01_rtl/01_non_pipeline/riscv_dmem.v
+L0 9
+R4
+R5
+R6
+R7
+R8
+!s85 0
+!s100 0J=QNA=Y^BS[>lnF_SLGR2
+!i10b 1
+!i111 0
+vriscv_imem
+R1
+r1
+31
+I0iPjc@lG^YKl2z8XLdgS:3
+R2
+w1568580724
+8../riscv_imem.v
+F../riscv_imem.v
+L0 9
+R4
+R8
+!s85 0
+!i10b 1
+!s100 Kzec9>Eh=WMN3LLQ139VI3
+!s108 1568559127.853000
+!s107 ../riscv_imem.v|
+!s90 +initreg+{r}+{0}|+delay_mode_zero|-timescale|1ns/1ns|-vlog01compat|-work|rtl_lib|../riscv_imem.v|
+!i111 0
+vriscv_imm_gen
+R1
+r1
+31
+I=GgcbdV_UeQ3Le^l^oQ@S1
+R2
+w1568578180
+8../../../01_rtl/01_non_pipeline/riscv_imm_gen.v
+F../../../01_rtl/01_non_pipeline/riscv_imm_gen.v
+L0 9
+R4
+R5
+R6
+R7
+R8
+!s85 0
+!s100 k0HR:MnAag@0=I]3X;[dW2
+!i10b 1
+!i111 0
+vriscv_pc
+R1
+r1
+31
+Ioz2LJ:=cNg;J?Kf[HF2;D2
+R2
+R3
+8../../../01_rtl/01_non_pipeline/riscv_pc.v
+F../../../01_rtl/01_non_pipeline/riscv_pc.v
+L0 9
+R4
+R5
+R6
+R7
+R8
+!s85 0
+!s100 7=4`]gGTXbgifhC`oMj^^1
+!i10b 1
+!i111 0
+vriscv_register
+R1
+r1
+31
+IWCH]VPfDTXS2h3Q@V6NT@3
+R2
+w1568580199
+8../../../01_rtl/01_non_pipeline/riscv_register.v
+F../../../01_rtl/01_non_pipeline/riscv_register.v
+L0 9
+R4
+R5
+R6
+R7
+R8
+!s85 0
+!s100 ^c8DF4:>4K_`YO=iaIcjk2
+!i10b 1
+!i111 0
+vriscv_top
+R1
+r1
+31
+IYSP;jzmbm2]]0X3K@5XL?2
+R2
+R3
+8../../../01_rtl/01_non_pipeline/riscv_top.v
+F../../../01_rtl/01_non_pipeline/riscv_top.v
+L0 9
+R4
+R5
+R6
+R7
+R8
+!s85 0
+!s100 Nel^>gW7glbAF5zlR]TL70
+!i10b 1
+!i111 0
+vriscv_wbmux
+R1
+r1
+31
+If4bFBOe3GAo2VaWTSdXoz2
+R2
+R3
+8../../../01_rtl/01_non_pipeline/riscv_wbmux.v
+F../../../01_rtl/01_non_pipeline/riscv_wbmux.v
+L0 9
+R4
+R5
+R6
+R7
+R8
+!s85 0
+!s100 0A<e8KhBQiXXQK2l5j=L31
+!i10b 1
+!i111 0

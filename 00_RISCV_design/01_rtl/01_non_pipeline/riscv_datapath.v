@@ -103,8 +103,8 @@ module riscv_datapath (
 
 	//branch comp instance
 	riscv_branch_comp u_branch_com (
-			.A						(rs1_w),
-			.B						(rs2_w),
+			.rs1						(rs1_w),
+			.rs2						(rs2_w),
 			.BrUn					(brun_in),
 			.BrEq					(breq_out),
 			.BrLT					(brlt_out)

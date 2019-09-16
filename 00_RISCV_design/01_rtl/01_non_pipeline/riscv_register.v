@@ -45,6 +45,9 @@ module riscv_register (
 	reg [DATA_WIDTH - 1 : 0] data_b_reg;
 
   //=========================================
+	initial begin
+		register[0] = 0;
+	end
 	wire [31:0] r0;
 	assign r0 = register[0];
 	wire [31:0] r1;
@@ -113,24 +116,26 @@ module riscv_register (
   //==========================================
   // Architecture module
   //==========================================
-	// reset 
-//	generate
-//		genvar i;
-//		if (reset == 1'b1) begin
-//			for (i = 0; i < NUM_REGISTER; i++) begin
-//				register[i] = 0;	
-//			end
-//		end
-//	endgenerate
 
 	// read/write register
-	always @(*) begin
-		if (reg_wen == 1'b1) begin
-			register[addr_d] = #DLY data_d;	
+reg [4:0] addr_d_reg;
+always #1 addr_d_reg = addr_d; //this signal used to avoid racing time
+	always @(reset or addr_d_reg) begin
+		if (reset == 1'b0) begin
+			if ( (reg_wen == 1'b1) && (addr_d_reg != 0) ) begin
+				register[addr_d_reg] =  data_d;
+			end
+		end
+	end
+
+	always @(reset or addr_a or addr_b) begin
+		if (reset == 1'b0) begin
+			data_a_reg = register[addr_a];
+			data_b_reg = register[addr_b];
 		end
 		else begin
-			data_a_reg	= #DLY register[addr_a];
-			data_b_reg	= #DLY register[addr_b];
+			data_a_reg = 32'd0;
+			data_b_reg = 32'd0;
 		end
 	end
 

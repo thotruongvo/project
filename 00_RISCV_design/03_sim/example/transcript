@@ -1,0 +1,74 @@
+# do ./test_run.tcl 
+# Copying D:/00_IC_tool/03_Questasim/win64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied D:/00_IC_tool/03_Questasim/win64/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# Modifying modelsim.ini
+# ../../../01_rtl/01_non_pipeline
+# ../../../02_tb
+# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module riscv_alu
+# -- Compiling module riscv_alumux_1
+# -- Compiling module riscv_alumux_2
+# -- Compiling module riscv_branch_comp
+# -- Compiling module riscv_controller
+# -- Compiling module riscv_datapath
+# -- Compiling module riscv_dmem
+# -- Compiling module riscv_imm_gen
+# -- Compiling module riscv_pc
+# -- Compiling module riscv_register
+# -- Compiling module riscv_top
+# -- Compiling module riscv_wbmux
+# 
+# Top level modules:
+# 	riscv_top
+# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module riscv_imem
+# 
+# Top level modules:
+# 	riscv_imem
+# QuestaSim-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module testbench
+# 
+# Top level modules:
+# 	testbench
+# vsim -L rtl_lib -L tb_lib -t ns -wlf testbench_wav.wlf -novopt tb_lib.testbench 
+# //  Questa Sim-64
+# //  Version 10.2c Unknown Platform Jul 19 2013
+# //
+# //  Copyright 1991-2013 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/tb_dir.testbench
+# Loading tb_lib.testbench
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_top
+# Loading rtl_lib.riscv_top
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_datapath
+# Loading rtl_lib.riscv_datapath
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_pc
+# Loading rtl_lib.riscv_pc
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_imem
+# Loading rtl_lib.riscv_imem
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_register
+# Loading rtl_lib.riscv_register
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_imm_gen
+# Loading rtl_lib.riscv_imm_gen
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_branch_comp
+# Loading rtl_lib.riscv_branch_comp
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_alumux_1
+# Loading rtl_lib.riscv_alumux_1
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_alumux_2
+# Loading rtl_lib.riscv_alumux_2
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_alu
+# Loading rtl_lib.riscv_alu
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_dmem
+# Loading rtl_lib.riscv_dmem
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_wbmux
+# Loading rtl_lib.riscv_wbmux
+# Refreshing E:/thovo_project/project/00_RISCV_design/03_sim/example/test_run/rtl_dir.riscv_controller
+# Loading rtl_lib.riscv_controller
+# reading D:/00_IC_tool/03_Questasim/win64/../modelsim.ini

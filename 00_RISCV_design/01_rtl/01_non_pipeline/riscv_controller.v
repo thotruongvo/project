@@ -4,6 +4,7 @@
 //Date: 27 Aug, 2019
 //Description: Controller for RISC-V CPU
 //====================================
+`define NOP    32'h0000_0013
 `define ADD 	 32'b?_0???????????????_000?????_0_110011
 `define SUB 	 32'b?_1???????????????_000?????_0_110011
 `define SLL 	 32'b?_0???????????????_001?????_0_110011
@@ -84,6 +85,19 @@ WBSel
 	reg [1:0] WBSel_reg;
 	 always @ (*) begin
 		 casez(inst)
+		 		`NOP: begin
+				 PCSel_reg = 1'b0;
+				 ImmSel_reg = 3'b000;
+				 RegWEn_reg = 1'b0;
+				 BrUn_reg = 1'b0;
+				 Bsel_reg = 1'b0;
+				 Asel_reg = 1'b0;
+				 ALUSel_reg = 4'b0000;
+				 MemRW_reg = 1'b0;
+				 DataIn_reg = 32'b0;
+				 DataOutAddrj_reg = 32'b0;
+				 WBSel_reg = 2'b01;
+			  end
 			 `ADD: begin
 				 PCSel_reg = 1'b0;
 				 ImmSel_reg = 3'bxxx;
@@ -493,7 +507,7 @@ WBSel
 			  end
 			 `BLT: begin
 				 if (BrLT == 1'b0) begin
-					 PCSel_reg = 1'b1;
+					 PCSel_reg = 1'b0;
 					 ImmSel_reg = 3'b010;
 					 RegWEn_reg = 1'b0;
 					 BrUn_reg = 1'b0;
@@ -506,7 +520,7 @@ WBSel
 					 WBSel_reg = 2'bz;
 				 end
 				 else begin
-					 PCSel_reg = 1'b0;
+					 PCSel_reg = 1'b1;
 					 ImmSel_reg = 3'b010;
 					 RegWEn_reg = 1'b0;
 					 BrUn_reg = 1'b0;

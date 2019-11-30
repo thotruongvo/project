@@ -43,23 +43,29 @@ module testbench ();
 
   initial begin
     clk = 0;
-    reset = 1;
-    #4 reset = 0;
+    reset = 0;
+    #15 reset = 1;
   end
 
-  riscv_top u_riscv (
+  RISC_V u_riscv (
     .clk      (clk),
     .reset    (reset)
   );
 
   always #10 clk = ~clk;
 
+  always @ (*) begin
+    if (u_riscv.U_Datapath.U_Register_bank.register[31] == 32'hffff_ffff) begin
+        #50 $finish();
+    end
+  end
+
 //==================================
 //
 //==================================
 reg [63:0] inst_name;
 always @ (*) begin
-  casez (u_riscv.u_control.inst)
+  casez (u_riscv.U_Datapath.inst)
     `ADD: inst_name = "ADD";
     `SUB: inst_name = "SUB";
     `SLL: inst_name = "SLL";
